@@ -9,9 +9,9 @@ from posts.models import Post
 class PostAdmin(admin.ModelAdmin):
     """Post Admin"""
 
-    list_display= ('pk','user','Profile', 'title', 'photo');
-    list_display_links = ('pk','user',);
-    search_fields = ('user__email','user__first_name', 'user__last_name','title','user__username');
+    list_display= ('pk','user','profile', 'title', 'photo')
+    list_display_links = ('pk','user',)
+    search_fields = ('user__email','user__first_name', 'user__last_name','title','user__username')
 
     list_filter = ('created',
     'modified',
