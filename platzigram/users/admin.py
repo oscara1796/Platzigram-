@@ -12,7 +12,7 @@ from users.models import Profile
 # Register your models here.
 
 #Esta es una forma de registrar nuestro modelo profile la forma easy
-# admin.site.register(Profile);
+# admin.site.register(Profile)
 
 #Pero también podemos hacer una clase para customizar como se ve en el Admin
 
@@ -21,7 +21,7 @@ from users.models import Profile
 class ProfileAdmin(admin.ModelAdmin):
     """Profile Admin"""
 
-    list_display= ('pk','user','phone_number', 'website', 'picture');
+    list_display= ('pk','user','phone_number', 'website', 'picture')
     list_display_links = ('pk','user',)
     list_editable = ('website', 'picture')
     search_fields = ('user__email','user__first_name', 'user__last_name','phone_number','user__username')
@@ -61,9 +61,9 @@ class ProfileAdmin(admin.ModelAdmin):
 
 class ProfileInline(admin.StackedInline):
     """Profile in-line admin for users"""
-    model= Profile;
-    can_delete = False;
-    verbose_name_plural = 'profiles';
+    model= Profile
+    can_delete = False
+    verbose_name_plural = 'profiles'
 
 class UserAdmin(BaseUserAdmin):
 
@@ -77,5 +77,5 @@ class UserAdmin(BaseUserAdmin):
     'is_staff'
     )
 
-admin.site.unregister(User);
-admin.site.register(User, UserAdmin);
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)

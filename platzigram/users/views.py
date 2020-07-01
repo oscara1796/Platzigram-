@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 #Exceptions
 
-from django.db.utils import IntegrityError;
+from django.db.utils import IntegrityError
 
 #Models
 
@@ -34,8 +34,8 @@ def update_profile(request):
             data = form.cleaned_data
             profile.website = data["website"]
             profile.biography = data["biography"]
-            profile.phone_number = data["phone_number"];
-            profile.picture = data["picture"];
+            profile.phone_number = data["phone_number"]
+            profile.picture = data["picture"]
             profile.save()
             return redirect('update_profile')
 
@@ -54,12 +54,12 @@ def update_profile(request):
 def login_view(request):
     """login View"""
     if request.method == 'POST':
-        username = request.POST['username'];
-        password = request.POST['password'];
-        user = authenticate(request, username=username, password=password);
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
         if user:
-            login(request, user);
-            return redirect('feed');
+            login(request, user)
+            return redirect('feed')
         else:
             return render(request, 'users/login.html', {'error': 'Invalid username and password'})
 
@@ -70,22 +70,22 @@ def signup_view(request):
 
 
     if request.method == 'POST':
-        username = request.POST['username'];
-        password = request.POST['password'];
-        password_confirmation = request.POST['password_confirmation'];
+        username = request.POST['username']
+        password = request.POST['password']
+        password_confirmation = request.POST['password_confirmation']
 
         if password != password_confirmation:
             return render(request, 'users/signup.html', {'error': 'Password does not match with password confirmation'})
 
         try:
-            user = User.objects.create_user(username = username, password=password);
+            user = User.objects.create_user(username = username, password=password)
         except IntegrityError:
             return render(request, 'users/signup.html', {'error': 'Username already exists'})
 
-        user.first_name = request.POST['first_name'];
-        user.last_name = request.POST['last_name'];
-        user.email = request.POST['email'];
-        user.save();
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.email = request.POST['email']
+        user.save()
 
         profile = Profile(user=user)
         profile.save()
@@ -99,6 +99,6 @@ def signup_view(request):
 def logout_view(request):
     """logout view"""
 
-    logout(request);
+    logout(request)
 
-    return redirect('login');
+    return redirect('login')

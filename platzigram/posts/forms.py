@@ -4,7 +4,6 @@
 from django.forms import ModelForm
 
 #Model
-
 from posts.models import Post
 
 
