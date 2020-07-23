@@ -1,16 +1,13 @@
-"""Post Forms"""
+# Django
+from django import forms
 
-#django
-from django.forms import ModelForm
-
-#Model
-
+# Models
 from posts.models import Post
 
 
-class PostForm(ModelForm):
-    """Post Model Form"""
+class PostForm(forms.ModelForm):
+    """Post model form."""
     class Meta:
-        """Form settings """
+        """Form settings."""
         model = Post
-        fields = ('user','profile', 'title', 'photo')
+        fields = ('user', 'Profile', 'title', 'photo')
