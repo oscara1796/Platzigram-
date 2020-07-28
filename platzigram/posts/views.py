@@ -27,7 +27,7 @@ def create_post(request):
         if form.is_valid():
             print("Post is save")
             form.save()
-            return redirect('feed')
+            return redirect('posts:feed')
 
     else:
         form = PostForm()
