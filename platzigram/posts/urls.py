@@ -12,7 +12,7 @@ from posts import views
 urlpatterns =[
     path(
     route='',
-    view= views.list_posts,
+    view= views.PostFeedView.as_view(),
     name="feed"
     ),
 
