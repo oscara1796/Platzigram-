@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DetailView
 
 
 # Forms
@@ -32,6 +33,18 @@ class PostFeedView(LoginRequiredMixin, ListView):
 #     posts = Post.objects.all().order_by('-created')
 #
 #     return render(request, 'posts/feed.html', {'posts': posts})
+
+
+class PostDetailView(LoginRequiredMixin, DetailView):
+    """User Detail View"""
+    template_name = 'posts/detail.html'
+    queryset = Post.objects.all()
+    slug_field = 'id'
+    slug_url_kwarg = 'post_id'
+    context_object_name ='post'
+
+
+
 
 
 @login_required
