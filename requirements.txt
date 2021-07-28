@@ -48,7 +48,7 @@ parso==0.7.1
 pathlib2==2.3.5
 pathspec==0.5.9
 paypalrestsdk==1.13.1
-Pillow==8.0.1
+Pillow==8.2.0
 playsound==1.2.2
 pluggy==0.13.1
 prettytable==2.1.0
